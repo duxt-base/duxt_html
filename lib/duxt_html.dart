@@ -57,7 +57,8 @@ export 'package:jaspr/dom.dart' show
     MediaLoading,
     // Style types
     Unit,
-    Color;
+    Color,
+    Colors;
 
 // Base utilities
 export 'src/base.dart' show Text, Raw, Fragment, resolveChildren, parseStyles;
