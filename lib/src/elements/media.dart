@@ -215,6 +215,38 @@ Component Embed({
   );
 }
 
+/// A script element.
+///
+/// The HTML `<script>` element embeds executable code or references an external script.
+///
+/// For external scripts, use the `src` parameter. For inline scripts, use `content`.
+/// Note: `content` is not escaped — only use trusted content, never user input.
+Component Script({
+  String? src,
+  String? content,
+  bool async = false,
+  bool defer = false,
+  String? className,
+  String? style,
+  String? id,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return jaspr.script(
+    src: src,
+    content: content,
+    async: async,
+    defer: defer,
+    classes: className,
+    styles: parseStyles(style),
+    id: id,
+    attributes: attributes,
+    events: events,
+    key: key,
+  );
+}
+
 /// A figure element.
 ///
 /// The HTML `<figure>` element represents self-contained content with an optional caption.
