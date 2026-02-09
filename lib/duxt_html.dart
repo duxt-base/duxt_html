@@ -64,6 +64,7 @@ export 'package:jaspr/dom.dart' show
 export 'src/base.dart' show Text, Raw, Fragment, resolveChildren, parseStyles;
 
 // HTML Elements
+export 'src/elements/document.dart';
 export 'src/elements/content.dart';
 export 'src/elements/text.dart';
 export 'src/elements/headings.dart';

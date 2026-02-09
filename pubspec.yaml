@@ -1,6 +1,6 @@
 name: duxt_html
 description: Flutter-style HTML components for Jaspr. Use PascalCase components like Div, Span, and Button with familiar Flutter patterns.
-version: 0.1.2
+version: 0.2.0
 homepage: https://duxt.dev
 repository: https://github.com/duxt-base/duxt_html
 

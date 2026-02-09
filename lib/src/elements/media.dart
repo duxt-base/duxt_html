@@ -247,6 +247,43 @@ Component Script({
   );
 }
 
+/// An object element.
+///
+/// The HTML `<object>` element represents an external resource, which can be
+/// treated as an image, a nested browsing context, or a resource handled by a plugin.
+///
+/// Named `ObjectEmbed` to avoid conflict with Dart's built-in `Object` class.
+Component ObjectEmbed({
+  String? className,
+  String? style,
+  String? id,
+  String? data,
+  String? name,
+  String? type,
+  int? width,
+  int? height,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return jaspr.object(
+    resolveChildren(child, children),
+    classes: className,
+    styles: parseStyles(style),
+    id: id,
+    data: data,
+    name: name,
+    type: type,
+    width: width,
+    height: height,
+    attributes: attributes,
+    events: events,
+    key: key,
+  );
+}
+
 /// A figure element.
 ///
 /// The HTML `<figure>` element represents self-contained content with an optional caption.
