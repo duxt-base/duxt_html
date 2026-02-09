@@ -73,3 +73,4 @@ export 'src/elements/table.dart';
 export 'src/elements/media.dart';
 export 'src/elements/semantic.dart';
 export 'src/elements/svg.dart';
+export 'src/elements/webcomponents.dart';

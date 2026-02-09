@@ -252,6 +252,32 @@ Component Pre({
   );
 }
 
+/// A menu element.
+///
+/// The HTML `<menu>` element is a semantic alternative to `<ul>` for
+/// toolbar-like lists of interactive items.
+Component Menu({
+  String? className,
+  String? style,
+  String? id,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'menu',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: attributes,
+    events: events,
+    children: resolveChildren(child, children),
+    key: key,
+  );
+}
+
 /// A horizontal rule element.
 ///
 /// The HTML `<hr>` element represents a thematic break.

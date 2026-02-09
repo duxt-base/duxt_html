@@ -443,6 +443,38 @@ Component Progress({
   );
 }
 
+/// An output element.
+///
+/// The HTML `<output>` element is a container for displaying
+/// the result of a calculation or user action.
+Component Output({
+  String? htmlFor,
+  String? name,
+  String? className,
+  String? style,
+  String? id,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'output',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: {
+      if (htmlFor != null) 'for': htmlFor,
+      if (name != null) 'name': name,
+      ...?attributes,
+    },
+    events: events,
+    children: resolveChildren(child, children),
+    key: key,
+  );
+}
+
 /// An optgroup element.
 ///
 /// The HTML `<optgroup>` element creates a grouping of options within a select element.

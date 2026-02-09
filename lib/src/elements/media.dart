@@ -247,6 +247,167 @@ Component Script({
   );
 }
 
+/// A picture element.
+///
+/// The HTML `<picture>` element contains `<source>` elements and one `<img>`
+/// for responsive images with format/art direction fallbacks.
+Component Picture({
+  String? className,
+  String? style,
+  String? id,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'picture',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: attributes,
+    events: events,
+    children: resolveChildren(child, children),
+    key: key,
+  );
+}
+
+/// A canvas element.
+///
+/// The HTML `<canvas>` element is used to draw 2D/3D graphics
+/// via the Canvas API or WebGL.
+Component Canvas({
+  int? width,
+  int? height,
+  String? className,
+  String? style,
+  String? id,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'canvas',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: {
+      if (width != null) 'width': width.toString(),
+      if (height != null) 'height': height.toString(),
+      ...?attributes,
+    },
+    events: events,
+    children: resolveChildren(child, children),
+    key: key,
+  );
+}
+
+/// A track element.
+///
+/// The HTML `<track>` element specifies timed text tracks (subtitles,
+/// captions, chapters) for `<audio>` and `<video>`. No children.
+Component Track({
+  String? src,
+  String? kind,
+  String? srclang,
+  String? label,
+  bool isDefault = false,
+  String? className,
+  String? style,
+  String? id,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'track',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: {
+      if (src != null) 'src': src,
+      if (kind != null) 'kind': kind,
+      if (srclang != null) 'srclang': srclang,
+      if (label != null) 'label': label,
+      if (isDefault) 'default': '',
+      ...?attributes,
+    },
+    events: events,
+    key: key,
+  );
+}
+
+/// An image map element.
+///
+/// The HTML `<map>` element defines an image map with clickable areas.
+///
+/// Named `ImageMap` to avoid conflict with Dart's built-in `Map` class.
+Component ImageMap({
+  String? name,
+  String? className,
+  String? style,
+  String? id,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'map',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: {
+      if (name != null) 'name': name,
+      ...?attributes,
+    },
+    events: events,
+    children: resolveChildren(child, children),
+    key: key,
+  );
+}
+
+/// An area element.
+///
+/// The HTML `<area>` element defines a clickable region inside an image map.
+/// No children.
+Component Area({
+  String? href,
+  String? alt,
+  String? shape,
+  String? coords,
+  String? target,
+  String? download,
+  String? className,
+  String? style,
+  String? id,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'area',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: {
+      if (href != null) 'href': href,
+      if (alt != null) 'alt': alt,
+      if (shape != null) 'shape': shape,
+      if (coords != null) 'coords': coords,
+      if (target != null) 'target': target,
+      if (download != null) 'download': download,
+      ...?attributes,
+    },
+    events: events,
+    key: key,
+  );
+}
+
 /// An object element.
 ///
 /// The HTML `<object>` element represents an external resource, which can be

@@ -1,5 +1,6 @@
 import 'package:jaspr/jaspr.dart' show Component, Key, EventCallback;
 import 'package:jaspr/dom.dart' as jaspr;
+import 'package:jaspr/dom.dart' show RawText;
 import '../base.dart';
 
 /// An HTML document element.
@@ -113,6 +114,123 @@ Component Meta({
 ///
 /// Named `HtmlLink` to avoid confusion with jaspr_router's `Link` component
 /// which is used for SPA navigation.
+/// A title element.
+///
+/// The HTML `<title>` element sets the document title shown in the browser tab.
+Component Title({
+  String? className,
+  String? style,
+  String? id,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'title',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: attributes,
+    events: events,
+    children: resolveChildren(child, children),
+    key: key,
+  );
+}
+
+/// A style element.
+///
+/// The HTML `<style>` element contains CSS styling for the document.
+///
+/// Named `StyleElement` to avoid conflict with Jaspr's `Styles` class.
+///
+/// Use `content` for inline CSS text, or `child`/`children` for component children.
+/// **Note:** `content` is not escaped — only use trusted content.
+Component StyleElement({
+  String? content,
+  String? media,
+  String? className,
+  String? style,
+  String? id,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'style',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: {
+      if (media != null) 'media': media,
+      ...?attributes,
+    },
+    events: events,
+    children: content != null
+        ? [RawText(content)]
+        : resolveChildren(child, children),
+    key: key,
+  );
+}
+
+/// A base element.
+///
+/// The HTML `<base>` element sets the base URL for all relative URLs
+/// in the document. No children.
+Component Base({
+  String? href,
+  String? target,
+  String? className,
+  String? style,
+  String? id,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'base',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: {
+      if (href != null) 'href': href,
+      if (target != null) 'target': target,
+      ...?attributes,
+    },
+    events: events,
+    key: key,
+  );
+}
+
+/// A noscript element.
+///
+/// The HTML `<noscript>` element defines content displayed when
+/// JavaScript is disabled or unsupported.
+Component Noscript({
+  String? className,
+  String? style,
+  String? id,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'noscript',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: attributes,
+    events: events,
+    children: resolveChildren(child, children),
+    key: key,
+  );
+}
+
 Component HtmlLink({
   required String href,
   String? rel,

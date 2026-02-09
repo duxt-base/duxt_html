@@ -2,6 +2,88 @@ import 'package:jaspr/jaspr.dart' show Component, Key, EventCallback;
 import 'package:jaspr/dom.dart' as jaspr;
 import '../base.dart';
 
+// ─── HTML5 semantic elements (not in Jaspr's DOM helpers) ───
+
+/// An address element.
+///
+/// The HTML `<address>` element provides contact information for
+/// the author/owner of a document or article.
+Component Address({
+  String? className,
+  String? style,
+  String? id,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'address',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: attributes,
+    events: events,
+    children: resolveChildren(child, children),
+    key: key,
+  );
+}
+
+/// A heading group element.
+///
+/// The HTML `<hgroup>` element groups a heading with secondary content
+/// like subheadings or taglines.
+Component Hgroup({
+  String? className,
+  String? style,
+  String? id,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'hgroup',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: attributes,
+    events: events,
+    children: resolveChildren(child, children),
+    key: key,
+  );
+}
+
+/// A search element.
+///
+/// The HTML `<search>` element is a semantic container for form controls
+/// related to search or filtering functionality.
+Component Search({
+  String? className,
+  String? style,
+  String? id,
+  Component? child,
+  List<Component>? children,
+  Map<String, String>? attributes,
+  Map<String, EventCallback>? events,
+  Key? key,
+}) {
+  return Component.element(
+    tag: 'search',
+    id: id,
+    classes: className,
+    styles: parseStyles(style),
+    attributes: attributes,
+    events: events,
+    children: resolveChildren(child, children),
+    key: key,
+  );
+}
+
+// ─── Jaspr-wrapped semantic elements ───
+
 /// A header element.
 ///
 /// The HTML `<header>` element represents introductory content.

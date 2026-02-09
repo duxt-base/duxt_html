@@ -1,10 +1,10 @@
 # duxt_html
 
-Flutter-style HTML components for [Jaspr](https://github.com/schultek/jaspr).
+Complete HTML5 components for [Jaspr](https://github.com/schultek/jaspr).
 
 ## Overview
 
-`duxt_html` provides a familiar Flutter-like syntax for building HTML components in Jaspr. Instead of lowercase function calls, you get PascalCase components with named parameters.
+`duxt_html` provides **every HTML5 element** as a Flutter-style PascalCase component for Jaspr. Instead of lowercase function calls, you get named parameters, `child`/`children` patterns, and `className` props — all returning standard Jaspr `Component` types.
 
 ## Installation
 
@@ -12,7 +12,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  duxt_html: ^0.2.0
+  duxt_html: ^1.0.0
 ```
 
 ## Usage
@@ -44,47 +44,54 @@ Div(
 
 ## Features
 
+- **Complete HTML5 coverage** - Every standard HTML5 element as a component
 - **PascalCase components** - `Div`, `Span`, `Button` instead of `div`, `span`, `button`
 - **Flutter-like child pattern** - Use `child` for single child, `children` for multiple
 - **className prop** - Use `className` instead of `classes`
 - **CSS string styles** - Pass CSS as a string: `style: 'color: red; font-size: 16px'`
 - **Full Jaspr compatibility** - All components return Jaspr `Component` types
 
-## Available Components (86)
+## All Components (117)
 
-Full Jaspr DOM coverage — every Jaspr HTML element has a duxt_html wrapper.
+Complete HTML5 coverage — every standard element has a duxt_html wrapper.
 
 ### Document Elements
-`Html`, `Head`, `Body`, `Meta`, `HtmlLink`
+`Html`, `Head`, `Body`, `Title`, `StyleElement`, `Base`, `Meta`, `HtmlLink`, `Noscript`
 
 ### Content Elements
-`Div`, `P`, `Ul`, `Ol`, `Li`, `Dl`, `Dt`, `Dd`, `Blockquote`, `Pre`, `Hr`
+`Div`, `P`, `Ul`, `Ol`, `Li`, `Dl`, `Dt`, `Dd`, `Blockquote`, `Pre`, `Hr`, `Menu`
 
 ### Text Elements
-`A`, `B`, `Br`, `Code`, `Em`, `I`, `S`, `Small`, `Span`, `Strong`, `U`, `Wbr`
+`A`, `B`, `Br`, `Code`, `Em`, `I`, `S`, `Small`, `Span`, `Strong`, `U`, `Wbr`, `Abbr`, `Bdi`, `Bdo`, `Cite`, `HtmlData`, `Dfn`, `Kbd`, `Mark`, `Q`, `Rp`, `Rt`, `Ruby`, `Samp`, `Sub`, `Sup`, `Time`, `HtmlVar`, `Del`, `Ins`
 
 ### Headings
 `H1`, `H2`, `H3`, `H4`, `H5`, `H6`
 
 ### Form Elements
-`Form`, `Input`, `Button`, `Select`, `Option`, `Textarea`, `Label`, `Fieldset`, `Legend`, `Datalist`, `Meter`, `Progress`, `Optgroup`
+`Form`, `Input`, `Button`, `Select`, `Option`, `Textarea`, `Label`, `Fieldset`, `Legend`, `Datalist`, `Meter`, `Progress`, `Optgroup`, `Output`
 
 ### Table Elements
 `Table`, `Tr`, `Td`, `Th`, `Thead`, `Tbody`, `Tfoot`, `Caption`, `Col`, `Colgroup`
 
 ### Media Elements
-`Img`, `Video`, `Audio`, `Source`, `Iframe`, `Embed`, `ObjectEmbed`, `Figure`, `Figcaption`, `Script`
+`Img`, `Video`, `Audio`, `Source`, `Iframe`, `Embed`, `ObjectEmbed`, `Picture`, `Canvas`, `Track`, `ImageMap`, `Area`, `Figure`, `Figcaption`, `Script`
 
 ### Semantic Elements
-`Header`, `Footer`, `Nav`, `Main`, `Article`, `Aside`, `Section`, `Details`, `Summary`, `Dialog`
+`Header`, `Footer`, `Nav`, `Main`, `Article`, `Aside`, `Section`, `Details`, `Summary`, `Dialog`, `Address`, `Hgroup`, `Search`
 
 ### SVG Elements
 `Svg`, `Rect`, `Circle`, `Ellipse`, `Line`, `Path`, `Polygon`, `Polyline`
 
+### Web Components
+`HtmlTemplate`, `Slot`
+
 ### Helpers
 `Text`, `Raw`, `Fragment`
 
-> **Naming:** `HtmlLink` avoids conflict with jaspr_router's `Link`. `ObjectEmbed` avoids conflict with Dart's `Object` class.
+> **Naming conventions:** Some components are renamed to avoid Dart conflicts:
+> `HtmlLink` (vs jaspr_router's Link), `ObjectEmbed` (vs Dart's Object),
+> `ImageMap` (vs Dart's Map), `HtmlVar` (vs `var` keyword),
+> `StyleElement` (vs Styles class), `HtmlTemplate`, `HtmlData`
 
 ## Examples
 
