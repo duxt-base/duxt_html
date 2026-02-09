@@ -12,7 +12,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  duxt_html: ^0.1.0
+  duxt_html: ^0.2.0
 ```
 
 ## Usage
@@ -50,7 +50,12 @@ Div(
 - **CSS string styles** - Pass CSS as a string: `style: 'color: red; font-size: 16px'`
 - **Full Jaspr compatibility** - All components return Jaspr `Component` types
 
-## Available Components
+## Available Components (86)
+
+Full Jaspr DOM coverage — every Jaspr HTML element has a duxt_html wrapper.
+
+### Document Elements
+`Html`, `Head`, `Body`, `Meta`, `HtmlLink`
 
 ### Content Elements
 `Div`, `P`, `Ul`, `Ol`, `Li`, `Dl`, `Dt`, `Dd`, `Blockquote`, `Pre`, `Hr`
@@ -68,7 +73,7 @@ Div(
 `Table`, `Tr`, `Td`, `Th`, `Thead`, `Tbody`, `Tfoot`, `Caption`, `Col`, `Colgroup`
 
 ### Media Elements
-`Img`, `Video`, `Audio`, `Source`, `Iframe`, `Embed`, `Figure`, `Figcaption`
+`Img`, `Video`, `Audio`, `Source`, `Iframe`, `Embed`, `ObjectEmbed`, `Figure`, `Figcaption`, `Script`
 
 ### Semantic Elements
 `Header`, `Footer`, `Nav`, `Main`, `Article`, `Aside`, `Section`, `Details`, `Summary`, `Dialog`
@@ -78,6 +83,8 @@ Div(
 
 ### Helpers
 `Text`, `Raw`, `Fragment`
+
+> **Naming:** `HtmlLink` avoids conflict with jaspr_router's `Link`. `ObjectEmbed` avoids conflict with Dart's `Object` class.
 
 ## Examples
 
